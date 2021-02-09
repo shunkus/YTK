@@ -23,7 +23,10 @@ export default function App(props) {
         <VideosComponent
           videos={videos}
           onRemoveVideoClicked={(videoId) => {
-            setVideos(videos.filter((id) => id !== videoId));
+            // eslint-disable-next-line no-restricted-globals
+            if (confirm("Are you sure you want to remove this video?")) {
+              setVideos(videos.filter((id) => id !== videoId));
+            }
           }}
         />
         <AddVideoComponent
