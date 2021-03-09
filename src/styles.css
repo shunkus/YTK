@@ -16,3 +16,14 @@ button {
 .MuiAppBar-positionStatic {
   margin-bottom: 8px !important;
 }
+.video-container {
+  position: relative;
+}
+.video-overlay {
+  height: 27%;
+  width: 100%;
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

@@ -6,7 +6,8 @@ import RemoveVideoButton from "./RemoveVideoButton";
 const VideosComponent = (props) => {
   const videos = props.videos.map((videoId, index) => {
     return (
-      <Grid item xs={6} lg={3} key={index}>
+      <Grid item xs={6} lg={3} key={index} className="video-container">
+        <div className="video-overlay"></div>
         <VideoComponent videoId={videoId} />
         <RemoveVideoButton
           onRemoveVideoClicked={() => {
