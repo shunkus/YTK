@@ -5,7 +5,9 @@ const VideoComponent = (props) => {
   const [videoId, setVideoId] = useState(props.videoId);
   const resetVideo = () => {
     setVideoId("");
-    setVideoId(props.videoId);
+    setTimeout(() => {
+      setVideoId(props.videoId);
+    }, 3000);
   }
   return (
     <YouTube videoId={videoId} onPause={resetVideo} onEnd={resetVideo} />
