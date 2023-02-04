@@ -1,15 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
+import YouTube from "react-youtube";
 
 const VideoComponent = (props) => {
-  const videoSrc = `https://www.youtube.com/embed/${props.videoId}`;
+  const [videoId, setVideoId] = useState(props.videoId);
+  const resetVideo = () => {
+    setVideoId("");
+    setVideoId(props.videoId);
+  }
   return (
-    <iframe
-      title={props.videoId}
-      src={videoSrc}
-      frameBorder="0"
-      allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-      allowFullScreen
-    ></iframe>
+    <YouTube videoId={videoId} onPause={resetVideo} onEnd={resetVideo} />
   );
 };
 

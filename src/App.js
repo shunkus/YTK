@@ -24,7 +24,7 @@ export default function App(props) {
           videos={videos}
           onRemoveVideoClicked={(videoId) => {
             // eslint-disable-next-line no-restricted-globals
-            if (confirm("Are you sure you want to remove this video?")) {
+            if (prompt("What is the answer to 12 multiplied by 12?") === "144") {
               setVideos(videos.filter((id) => id !== videoId));
             }
           }}
