@@ -8,9 +8,14 @@ const VideoComponent = (props) => {
     setTimeout(() => {
       setVideoId(props.videoId);
     }, 3000);
-  }
+  };
   return (
-    <YouTube videoId={videoId} onPause={resetVideo} onEnd={resetVideo} />
+    <YouTube
+      videoId={videoId}
+      onPause={resetVideo}
+      onEnd={resetVideo}
+      opts={{ playerVars: { modestbranding: 1 } }}
+    />
   );
 };
 
