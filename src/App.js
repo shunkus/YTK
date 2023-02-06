@@ -1,8 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Container, AppBar, Toolbar, Typography } from "@material-ui/core";
+import {
+  Container,
+  AppBar,
+  Toolbar,
+  Typography,
+  ThemeProvider,
+  createMuiTheme,
+} from "@material-ui/core";
 import VideosComponent from "./components/VideosComponent";
 import AddVideoComponent from "./components/AddVideoComponent";
 import "./styles.css";
+
+const theme = createMuiTheme({
+  palette: {
+    secondary: {
+      main: "#DC472E",
+    },
+  },
+});
 
 export default function App(props) {
   const [videos, setVideos] = useState(props.videos);
@@ -11,7 +26,7 @@ export default function App(props) {
     localStorage.setItem("videos", videosString);
   });
   return (
-    <div className="App">
+    <ThemeProvider className="App" theme={theme}>
       <AppBar color="secondary" position="static">
         <Toolbar>
           <Typography variant="h5" style={{ fontFamily: "Bebas Neue" }}>
@@ -24,7 +39,9 @@ export default function App(props) {
           videos={videos}
           onRemoveVideoClicked={(videoId) => {
             // eslint-disable-next-line no-restricted-globals
-            if (prompt("What is the answer to 12 multiplied by 12?") === "144") {
+            if (
+              prompt("What is the answer to 12 multiplied by 12?") === "144"
+            ) {
               setVideos(videos.filter((id) => id !== videoId));
             }
           }}
@@ -35,6 +52,6 @@ export default function App(props) {
           }}
         />
       </Container>
-    </div>
+    </ThemeProvider>
   );
 }
