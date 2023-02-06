@@ -9,6 +9,7 @@ const VideosComponent = (props) => {
       <Grid item xs={12} sm={6} md={6} lg={3} key={index}>
         <div className="video-container">
           <VideoComponent videoId={videoId} />
+          <div className="video-overlay"></div>
         </div>
         <RemoveVideoButton
           onRemoveVideoClicked={() => {

@@ -14,7 +14,7 @@ const VideoComponent = (props) => {
       videoId={videoId}
       onPause={resetVideo}
       onEnd={resetVideo}
-      opts={{ playerVars: { modestbranding: 1 } }}
+      opts={{ playerVars: { modestbranding: 1, controls: 0, playsinline: 0 } }}
     />
   );
 };
